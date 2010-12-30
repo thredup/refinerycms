@@ -110,17 +110,17 @@ ActiveRecord::Schema.define(:version => 20100929035252) do
     t.string   "file_ext"
   end
 
-  create_table "roles", :force => true do |t|
-    t.string "title"
-  end
+  # create_table "roles", :force => true do |t|
+  #   t.string "title"
+  # end
+  # 
+  # create_table "roles_users", :id => false, :force => true do |t|
+  #   t.integer "user_id"
+  #   t.integer "role_id"
+  # end
 
-  create_table "roles_users", :id => false, :force => true do |t|
-    t.integer "user_id"
-    t.integer "role_id"
-  end
-
-  add_index "roles_users", ["role_id", "user_id"], :name => "index_roles_users_on_role_id_and_user_id"
-  add_index "roles_users", ["user_id", "role_id"], :name => "index_roles_users_on_user_id_and_role_id"
+  # add_index "roles_users", ["role_id", "user_id"], :name => "index_roles_users_on_role_id_and_user_id"
+  # add_index "roles_users", ["user_id", "role_id"], :name => "index_roles_users_on_user_id_and_role_id"
 
   create_table "slugs", :force => true do |t|
     t.string   "name"
@@ -134,26 +134,26 @@ ActiveRecord::Schema.define(:version => 20100929035252) do
   add_index "slugs", ["name", "sluggable_type", "scope", "sequence"], :name => "index_slugs_on_name_and_sluggable_type_and_scope_and_sequence", :unique => true
   add_index "slugs", ["sluggable_id"], :name => "index_slugs_on_sluggable_id"
 
-  create_table "user_plugins", :force => true do |t|
-    t.integer "user_id"
-    t.string  "name"
-    t.integer "position"
-  end
+  # create_table "user_plugins", :force => true do |t|
+  #   t.integer "user_id"
+  #   t.string  "name"
+  #   t.integer "position"
+  # end
+  # 
+  # add_index "user_plugins", ["name"], :name => "index_user_plugins_on_title"
+  # add_index "user_plugins", ["user_id", "name"], :name => "index_unique_user_plugins", :unique => true
 
-  add_index "user_plugins", ["name"], :name => "index_user_plugins_on_title"
-  add_index "user_plugins", ["user_id", "name"], :name => "index_unique_user_plugins", :unique => true
-
-  create_table "users", :force => true do |t|
-    t.string   "login",             :null => false
-    t.string   "email",             :null => false
-    t.string   "crypted_password",  :null => false
-    t.string   "password_salt",     :null => false
-    t.string   "persistence_token"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "perishable_token"
-  end
-
-  add_index "users", ["id"], :name => "index_users_on_id"
+  # create_table "users", :force => true do |t|
+  #   t.string   "login",             :null => false
+  #   t.string   "email",             :null => false
+  #   t.string   "crypted_password",  :null => false
+  #   t.string   "password_salt",     :null => false
+  #   t.string   "persistence_token"
+  #   t.datetime "created_at"
+  #   t.datetime "updated_at"
+  #   t.string   "perishable_token"
+  # end
+  # 
+  # add_index "users", ["id"], :name => "index_users_on_id"
 
 end
